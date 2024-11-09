@@ -1,6 +1,6 @@
 #include <cassert>
-// TODO: doplťe co potřebujete
-
+#include <iostream>
+#include <cmath>
 
 // Implementujte funkci ‹power_digit_sum›, která vrátí „speciální“
 // ciferný součet čísla ‹number›, který se od běžného ciferného
@@ -14,6 +14,10 @@
 // + 2 = 1234⟧.  Proto ‹power_digit_sum(1234)› získáme jako ⟦3¹ + 4²
 // + 1³ + 2⁴ = 36⟧.
 
+int power_digit_sum(int number) {
+
+    return 0;
+} 
 
 
 // Napište funkci, která najde celé číslo ‹x›, které leží mezi
@@ -24,6 +28,23 @@
 
 int poly(int x) {
     return 10 + 30 * x - 15 * x * x * x + x * x * x * x * x;
+}
+
+int max_poly(int low, int high) {
+    int max_x = low;
+    int max_polynomial = poly(low);
+
+    for (int i = low; i <= high; i++)
+    {
+        int polynomial =  poly(i);
+        // std::cout << i << ": " << polynomial << ", ";  // control print 
+        if (polynomial > max_polynomial) {
+            max_polynomial = polynomial;      
+            max_x = i;
+        } 
+    }
+    std::cout << std::endl;
+    return max_x;
 }
 
 
@@ -59,4 +80,21 @@ int first_day(int year) {
     int years = year - 1601;
     int offset = years + years / 4 - years / 100 + years / 400;
     return offset % 7;
+}
+
+int working_days(int year) {
+
+    return 0;
+}
+
+int main() {
+    std::cout << "Speciální mocnina: " << std::endl;
+    std::cout << power_digit_sum(2) << std::endl;
+
+    std::cout << "Maximum polynomu: " << std::endl;
+    std::cout << max_poly(-10, 10) << std::endl;
+    
+    std::cout << "Pracovní dny: " << std::endl;
+    std::cout << working_days(1989) << std::endl;
+    
 }

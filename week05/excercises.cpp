@@ -5,7 +5,27 @@
 // Vypište obdélník o zadaných parametrech
 // Vraťte 0 pokud vše v pořádku, -1 pokud nastala chyba
 int hollow_rect(int x, int y, int thickness) {
-    return -1;
+    std::cout << "Obdélník: " << std::endl;
+    if ((x <= 0) || (y <= 0) || (thickness <= 0))
+        return -1;
+    if ( (x <= thickness) || (y <= thickness) )
+        return -1;
+
+    for (size_t i = 0; i < y; i++)
+    {
+        for (size_t j = 0; j < x; j++)
+        {
+            if ( ((j >= thickness) && (j < (x - thickness))) &&
+                 ((i >= thickness) && (i < (y - thickness)))    )
+                std::cout << "0";
+            else 
+                std::cout << "*";
+        }
+        std::cout << std::endl;
+    }
+    
+
+    return 0;
 }
 
 // Vraťte a na n
@@ -39,8 +59,8 @@ int fibRec(int idx) {
 
 
 int main() {
-    
-    std::cout << "žiju " << std::endl;
+    std::cout << ( abs(hollow_rect(12, 10, 3)) ? "Obdélník chyba" : "Obdélník OK") << std::endl;
+    std::cout << "Mocnina: " << std::endl;
     std::cout << power(-2, 2) << std::endl;
     
     std::cout << "Fib cyklus:"  << std::endl;
